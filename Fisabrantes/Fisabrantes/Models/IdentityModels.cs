@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Fisabrantes.Models
 {
@@ -21,7 +22,7 @@ namespace Fisabrantes.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DataBaseFisio", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +30,25 @@ namespace Fisabrantes.Models
         {
             return new ApplicationDbContext();
         }
+
+        // Add a DbSet for each entity type that you want to include in your model. For more information 
+        // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
+
+        public virtual DbSet<Funcionarios> Funcionarios { get; set; }
+        public virtual DbSet<Utentes> Utentes { get; set; }
+        public virtual DbSet<Consultas> Consultas { get; set; }
+        public virtual DbSet<Prescricoes> Prescricao { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+
+
+
     }
 }
