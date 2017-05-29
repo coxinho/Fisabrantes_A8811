@@ -22,11 +22,11 @@ namespace Fisabrantes.Migrations
             // ############################################################################################
             // adiciona Funcionarios
             var Funcionarios = new List<Funcionarios> {
-           new Funcionarios  {idFuncionario=1, Nome = "Fernando Sousa", DataNasc = new DateTime (1978,12,5), Rua ="", NumPorta = "", Localidade = "", CodPostal = "", NIF = "", DataEntClinica = new DateTime (2017,4,3), CatProfissional = ""  },
-           new Funcionarios  {idFuncionario=2, Nome = "Sílvia Marques", DataNasc = new DateTime (1965,9,3), Rua ="", NumPorta = "", Localidade = "", CodPostal = ""  , NIF = "", DataEntClinica = new DateTime (2017,4,3), CatProfissional = ""  },
-           new Funcionarios  {idFuncionario=3, Nome = "Susana Pereira", DataNasc = new DateTime (1980,10,22), Rua ="", NumPorta = "", Localidade = "", CodPostal = ""  , NIF = "", DataEntClinica = new DateTime (2017,4,3), CatProfissional = ""  },
-           new Funcionarios  {idFuncionario=4, Nome = "Maria Gouveia", DataNasc = new DateTime (1976,5,7), Rua ="", NumPorta = "", Localidade = "", CodPostal = ""  , NIF = "", DataEntClinica = new DateTime (2017,4,3), CatProfissional = ""  },
-           new Funcionarios  {idFuncionario=5, Nome = "Pedro Ferreira", DataNasc = new DateTime (1982,10,10), Rua ="", NumPorta = "", Localidade = "", CodPostal = ""  , NIF = "", DataEntClinica = new DateTime (2017,4,3), CatProfissional = ""  }
+           new Funcionarios  {idFuncionario=1, Nome = "Fernando Sousa", DataNasc = new DateTime (1978,12,5), Rua ="Av. 25 de Abril", NumPorta = "3", Localidade = "Abrantes", CodPostal = "2200-299", NIF = "133765342", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "323"  },
+           new Funcionarios  {idFuncionario=2, Nome = "Sílvia Marques", DataNasc = new DateTime (1965,9,3), Rua ="Rua da Boavista", NumPorta = "17", Localidade = "Vale Zebrinho", CodPostal = "2205-411"  , NIF = "122443879", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "156"  },
+           new Funcionarios  {idFuncionario=3, Nome = "Susana Pereira", DataNasc = new DateTime (1980,10,22), Rua ="Rua das Larangeiras", NumPorta = "32", Localidade = "Sertã", CodPostal = "6101-909"  , NIF = "182544286", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "278"  },
+           new Funcionarios  {idFuncionario=4, Nome = "Maria Gouveia", DataNasc = new DateTime (1976,5,7), Rua ="Rua Prof. Prado Coelho", NumPorta = "40", Localidade = "Lisboa", CodPostal = "1600-656"  , NIF = "156222786", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "376"  },
+           new Funcionarios  {idFuncionario=5, Nome = "Pedro Ferreira", DataNasc = new DateTime (1982,10,10), Rua ="Av. 5 de Outubro", NumPorta = "26", Localidade = "Entroncamento", CodPostal = "2330-084"  , NIF = "173342689", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "247"  }
 
         };
 
@@ -37,11 +37,11 @@ namespace Fisabrantes.Migrations
             // ############################################################################################
             // adiciona Utentes
             var Utentes = new List<Utentes> {
-           new Utentes  {idUtente=1, Nome = "Paulo Dias", DataNasc = new DateTime (1988,3,5), NIF ="", Telefone = "", Morada = "", SNS = ""  },
-           new Utentes  {idUtente=2, Nome = "Joana Lopes", DataNasc = new DateTime (1950,6,3), NIF ="", Telefone = "", Morada = "", SNS = ""  },
-           new Utentes  {idUtente=3, Nome = "Lurdes Costa", DataNasc = new DateTime (1970,8,2), NIF ="", Telefone = "", Morada = "", SNS = ""  },
-           new Utentes  {idUtente=4, Nome = "José Bernardo", DataNasc = new DateTime (1961,4,27), NIF ="", Telefone = "", Morada = "", SNS = ""  },
-           new Utentes  {idUtente=5, Nome = "Jorge Santos", DataNasc = new DateTime (1940,7,20), NIF ="", Telefone = "", Morada = "", SNS = ""  }
+           new Utentes  {idUtente=1, Nome = "Paulo Dias", DataNasc = new DateTime (1988,3,5), NIF ="154647324", Telefone = "962434671", Morada = "Torres Novas", CodPostal = "2350-630", SNS = "395121876"  },
+           new Utentes  {idUtente=2, Nome = "Joana Lopes", DataNasc = new DateTime (1950,6,3), NIF ="122845676", Telefone = "923654871", Morada = "Ponte de Sôr", CodPostal = "7400-123", SNS = "395654890"  },
+           new Utentes  {idUtente=3, Nome = "Lurdes Costa", DataNasc = new DateTime (1970,8,2), NIF ="133867453", Telefone = "931540761", Morada = "Abrantes", CodPostal = "2200-350", SNS = "395111453"  },
+           new Utentes  {idUtente=4, Nome = "José Bernardo", DataNasc = new DateTime (1961,4,27), NIF ="187231569", Telefone = "965214629", Morada = "Tramagal", CodPostal = "2200-332", SNS = "395275998"  },
+           new Utentes  {idUtente=5, Nome = "Jorge Santos", DataNasc = new DateTime (1940,7,20), NIF ="144089327", Telefone = "913638510", Morada = "Tomar", CodPostal = "2304-909", SNS = "395003564"  }
 
         };
 
@@ -62,19 +62,19 @@ namespace Fisabrantes.Migrations
             Consultas.ForEach(cc => context.Consultas.Add(cc));
             context.SaveChanges();
 
-            //    // ############################################################################################
-            //    // adiciona Prescricao
-            //    var Prescricao = new List<Prescricoes> {
-            //   new Prescricoes  {idPrescricao = 1, DataConsulta =  new DateTime(2017,6,8), Descricao = "", FuncionarioFK = 2 },
-            //   new Prescricoes  {idPrescricao = 2, DataConsulta =  new DateTime(2017,6,18), Descricao = "", FuncionarioFK = 1 },
-            //   new Prescricoes  {idPrescricao = 3, DataConsulta =  new DateTime(2017,6,10), Descricao = "", FuncionarioFK = 2 },
-            //   new Prescricoes  {idPrescricao = 4, DataConsulta =  new DateTime(2017,6,14), Descricao = "", FuncionarioFK = 3 },
-            //   new Prescricoes  {idPrescricao = 5, DataConsulta =  new DateTime(2017,6,20), Descricao = "", FuncionarioFK = 3 },
-            //   new Prescricoes  {idPrescricao = 6, DataConsulta =  new DateTime(2017,6,17), Descricao = "", FuncionarioFK = 2 }
-            //};
+                // ############################################################################################
+                // adiciona Prescricao
+                var Prescricao = new List<Prescricoes> {
+               new Prescricoes  {idPrescricao = 1, Descricao = "Fisioterapia Respiratóra - Pretende-se melhorar a dinâmica respiratória e a distribuição do ar inalado no pulmão e remover secreções brônquicas.", ConsultaFK = 2 },
+               new Prescricoes  {idPrescricao = 2, Descricao = "Eletroterapia - Pretende-se utilizar a eletricidade em tratamentos e estimulação.", ConsultaFK = 2 },
+               new Prescricoes  {idPrescricao = 3, Descricao = "Cinesioterapia - Terapia pelo movimento. Pretende-se o movimento com os músculos, articulações, ligamentos, tendões e estruturas do sistema nervoso central e periférico.", ConsultaFK = 2 },
+               new Prescricoes  {idPrescricao = 4, Descricao = "Termoterapia - Deve utilizar-se o calor, ou o frio, como forma de tratar diversas patologias.", ConsultaFK = 2 },
+               new Prescricoes  {idPrescricao = 5, Descricao = "Fototerapia - Utilizando aparelhos geradores de luz em diversos tratamentos.", ConsultaFK = 2 },
+               new Prescricoes  {idPrescricao = 6, Descricao = "Fisioterapia neurofuncional - Tratamento de distúrbios neurológicos que envolvam ou não disfunções motoras.", ConsultaFK = 2 }
+            };
 
-            //    Prescricao.ForEach(cc => context.Prescricao.Add(cc));
-            //    context.SaveChanges();
+                Prescricao.ForEach(cc => context.Prescricao.Add(cc));
+                context.SaveChanges();
 
         }
     }

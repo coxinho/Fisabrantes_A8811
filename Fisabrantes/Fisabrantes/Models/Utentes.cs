@@ -19,28 +19,29 @@ namespace Fisabrantes.Models
         [Key]
         public int idUtente { get; set; }
 
-        //[Column(TypeName = "Nome")]
+        [Display(Name ="Nome do Utente")]
         public string Nome { get; set; }
 
-        //[Column(TypeName = "DataNasc")]
+        [Display(Name ="Data de Nascimento")]
         public DateTime DataNasc { get; set; }
 
-        //[Column(TypeName = "NIF")]
+        [Display(Name ="NIF")]
         public string NIF { get; set; }
 
-        //[Column(TypeName = "Telefone")]
+        [Display(Name ="Nº de Telefone")]
         public string Telefone { get; set; }
 
-        //[Column(TypeName = "Morada")]
+        [Display(Name ="Morada")]
         public string Morada { get; set; }
 
+        [Display(Name ="Código Postal")]
         public string CodPostal { get; set; }
 
-        // [Column(TypeName = "SNS")]
+        [Display(Name ="Sistema Nacional Saúde")]
         public string SNS { get; set; }
 
         //**************************************************************************
-        // lista das Consultas associadas ao Utente
+        // Lista das Consultas associadas ao Utente
         public virtual ICollection<Consultas> ListaDeConsultasAoUtente { get; set; }
 
     }

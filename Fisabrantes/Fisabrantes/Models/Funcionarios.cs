@@ -21,7 +21,6 @@ namespace Fisabrantes.Models
         [Display(Name = "Nome do Funcionário")]
         public string Nome { get; set; }
 
-        [Column(TypeName = "Date")]
         [Display(Name = "Data do Nascimento")]
         public DateTime DataNasc { get; set; }
 

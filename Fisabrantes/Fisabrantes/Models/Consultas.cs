@@ -30,7 +30,7 @@ namespace Fisabrantes.Models
         public virtual Funcionarios Fisiatra { get; set; }
 
 
-        //lista de Prescriçoes associadas a esta Consulta
+        //Lista de Prescriçoes associadas a esta Consulta
         public virtual ICollection<Prescricoes> ListaDePrescricoes { get; set; }
     }
 }
