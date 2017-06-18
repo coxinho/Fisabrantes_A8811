@@ -15,14 +15,14 @@ namespace Fisabrantes.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "A fisioterapia atua em três bases principais:";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contacto da clínica";
 
             return View();
         }
