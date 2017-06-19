@@ -10,5 +10,11 @@ namespace Fisabrantes
         {
             ConfigureAuth(app);
         }
+
+
+        //ver o código do e-learning, para criar Roles e Utilizadores
+
+
+
     }
 }

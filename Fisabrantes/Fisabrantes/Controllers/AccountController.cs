@@ -136,7 +136,7 @@ namespace Fisabrantes.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles = "Administativo")]
         public ActionResult Register()
         {
             return View();
@@ -145,7 +145,7 @@ namespace Fisabrantes.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "Administativo")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -155,7 +155,13 @@ namespace Fisabrantes.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    // a conta foi criada
+                    // adicionar a pessoa ao ROLE específico
+                    var result1 = UserManager.AddToRole(user.Id, model.RoleAtribuidoAuUser);
+
+
+
+                    //  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link

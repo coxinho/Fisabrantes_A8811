@@ -62,6 +62,9 @@ namespace Fisabrantes.Models
         public bool RememberMe { get; set; }
     }
 
+    /// <summary>
+    /// recolhe os dados de um novo FUNCIONARIO
+    /// </summary>
     public class RegisterViewModel
     {
         [Required]
@@ -79,6 +82,10 @@ namespace Fisabrantes.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        // recolhe a Role a atribuir ao utilizador
+        [Display(Name = "Perfil de Utilizador")]
+        public string RoleAtribuidoAuUser { get; set; }
     }
 
     public class ResetPasswordViewModel

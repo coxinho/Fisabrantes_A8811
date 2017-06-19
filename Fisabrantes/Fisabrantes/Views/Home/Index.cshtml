@@ -15,13 +15,14 @@
         </font>
     </p>
     <p style="text-align:right;"><font size="3">Definição de Fisioterapia retirado do decreto-lei nº 564/99 de 21 de Dezembro.</font></p>
-    <p><a url="Fisioterapia.cshtml" class="btn btn-primary btn-lg">Fisioterapia Especialidades &raquo;</a></p>
     <p style="text-align:right;">
         <b>
             <font size="3">Colaboradores:</font>
-            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Médico Fisiatra &raquo;</a>
-            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Fisioterapeuta &raquo;</a>
-            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Administrativa &raquo;</a>
+            <a class="btn btn-default" href="#">Médicos &raquo;</a>
+            @Html.ActionLink("Médicos »", "ListaMedicos", "Home", null, new { @class = "btn btn-default" })
+
+            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Terapeutas &raquo;</a>
+            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Administrativos &raquo;</a>
         </b>
     </p>
     <p></p>

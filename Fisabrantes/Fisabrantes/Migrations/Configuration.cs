@@ -22,13 +22,13 @@ namespace Fisabrantes.Migrations
             // ############################################################################################
             // adiciona Funcionarios
             var Funcionarios = new List<Funcionarios> {
-           new Funcionarios  {idFuncionario=1, Nome = "Fernando Sousa", DataNasc = new DateTime (1978,12,5), Rua ="Av. 25 de Abril", NumPorta = "3", Localidade = "Abrantes", CodPostal = "2200-299", NIF = "133765342", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "323"  },
-           new Funcionarios  {idFuncionario=2, Nome = "Sílvia Marques", DataNasc = new DateTime (1965,9,3), Rua ="Rua da Boavista", NumPorta = "17", Localidade = "Vale Zebrinho", CodPostal = "2205-411"  , NIF = "122443879", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "156"  },
-           new Funcionarios  {idFuncionario=3, Nome = "Susana Pereira", DataNasc = new DateTime (1980,10,22), Rua ="Rua das Larangeiras", NumPorta = "32", Localidade = "Sertã", CodPostal = "6101-909"  , NIF = "182544286", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "278"  },
-           new Funcionarios  {idFuncionario=4, Nome = "Maria Gouveia", DataNasc = new DateTime (1976,5,7), Rua ="Rua Prof. Prado Coelho", NumPorta = "40", Localidade = "Lisboa", CodPostal = "1600-656"  , NIF = "156222786", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "376"  },
-           new Funcionarios  {idFuncionario=5, Nome = "Pedro Ferreira", DataNasc = new DateTime (1982,10,10), Rua ="Av. 5 de Outubro", NumPorta = "26", Localidade = "Entroncamento", CodPostal = "2330-084"  , NIF = "173342689", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "247"  }
+                   new Funcionarios  {idFuncionario=1, Nome = "Fernando Sousa", DataNasc = new DateTime (1978,12,5), Rua ="Av. 25 de Abril", NumPorta = "3", Localidade = "Abrantes", CodPostal = "2200-299", NIF = "133765342", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "Médico Fisiatra"  },
+                   new Funcionarios  {idFuncionario=2, Nome = "Sílvia Marques", DataNasc = new DateTime (1965,9,3), Rua ="Rua da Boavista", NumPorta = "17", Localidade = "Vale Zebrinho", CodPostal = "2205-411"  , NIF = "122443879", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "Médica Fisiatra"   },
+                   new Funcionarios  {idFuncionario=3, Nome = "Susana Pereira", DataNasc = new DateTime (1980,10,22), Rua ="Rua das Larangeiras", NumPorta = "32", Localidade = "Sertã", CodPostal = "6101-909"  , NIF = "182544286", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "Terapeuta da Fala"  },
+                   new Funcionarios  {idFuncionario=4, Nome = "Maria Gouveia", DataNasc = new DateTime (1976,5,7), Rua ="Rua Prof. Prado Coelho", NumPorta = "40", Localidade = "Lisboa", CodPostal = "1600-656"  , NIF = "156222786", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "Fisioterapeuta"  },
+                   new Funcionarios  {idFuncionario=5, Nome = "Pedro Ferreira", DataNasc = new DateTime (1982,10,10), Rua ="Av. 5 de Outubro", NumPorta = "26", Localidade = "Entroncamento", CodPostal = "2330-084"  , NIF = "173342689", DataEntClinica = new DateTime (2017,4,3), CatProfissional = "Administrativo"  }
 
-        };
+                };
 
             Funcionarios.ForEach(zz => context.Funcionarios.AddOrUpdate(z => z.Nome, zz));
             context.SaveChanges();
