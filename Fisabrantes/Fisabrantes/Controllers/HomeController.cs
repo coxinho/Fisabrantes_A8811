@@ -11,6 +11,7 @@ namespace Fisabrantes.Controllers
 {
         // referencia a BD
         ApplicationDbContext db = new ApplicationDbContext();
+        private object listaAdministrativos;
 
         public ActionResult Index()
         {
@@ -43,9 +44,26 @@ namespace Fisabrantes.Controllers
             return View(listaDeMedicos);
         }
 
+        public ActionResult ListaTerapeutas()
+        {
+            // pesquisar a lista de terapeutas que exixtem na BD
+            var listaDeTerapeutas = db.Funcionarios
+                                    .Where(f => f.CatProfissional.Contains("Terapeuta"))
+                                    .OrderBy(f => f.Nome)
+                                    .ToList();
 
+            return View(listaDeTerapeutas);
+        }
+        public ActionResult ListaAdministrativos()
+        {
+            // pesquisar a lista de terapeutas que exixtem na BD
+            var listaDeAdministrativos = db.Funcionarios
+                                    .Where(f => f.CatProfissional.Contains("Administrat"))
+                                    .OrderBy(f => f.Nome)
+                                    .ToList();
 
-
+            return View(listaDeAdministrativos);
+        }
 
     }
 }

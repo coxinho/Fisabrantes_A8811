@@ -18,11 +18,9 @@
     <p style="text-align:right;">
         <b>
             <font size="3">Colaboradores:</font>
-            <a class="btn btn-default" href="#">Médicos &raquo;</a>
             @Html.ActionLink("Médicos »", "ListaMedicos", "Home", null, new { @class = "btn btn-default" })
-
-            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Terapeutas &raquo;</a>
-            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Administrativos &raquo;</a>
+            @Html.ActionLink("Terapeutas »", "ListaTerapeutas", "Home", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Administrativos »", "ListaAdministrativos", "Home", null, new { @class = "btn btn-default" })
         </b>
     </p>
     <p></p>
