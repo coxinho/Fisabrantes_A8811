@@ -220,6 +220,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagens\35.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -279,10 +280,10 @@
     <Content Include="Views\Funcionarios\Index.cshtml" />
     <Content Include="Views\Home\ListaTerapeutas.cshtml" />
     <Content Include="Views\Home\ListaAdministrativos.cshtml" />
+    <Content Include="Views\Home\Tratamentos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Imagens\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

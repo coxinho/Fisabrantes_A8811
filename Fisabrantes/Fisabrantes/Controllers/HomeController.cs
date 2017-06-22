@@ -27,7 +27,7 @@ namespace Fisabrantes.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Contacto da clínica";
+            ViewBag.Message = "Fisabrantes";
 
             return View();
         }
