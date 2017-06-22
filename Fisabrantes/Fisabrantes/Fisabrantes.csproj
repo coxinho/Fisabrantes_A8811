@@ -199,6 +199,7 @@
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,6 +222,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagens\35.jpg" />
+    <Content Include="Imagens\asistencia-domiciliaria.jpg" />
+    <Content Include="Imagens\clinica.jpg" />
+    <Content Include="Imagens\shutterstock_279710963.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -281,6 +285,8 @@
     <Content Include="Views\Home\ListaTerapeutas.cshtml" />
     <Content Include="Views\Home\ListaAdministrativos.cshtml" />
     <Content Include="Views\Home\Tratamentos.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

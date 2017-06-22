@@ -56,7 +56,7 @@ namespace Fisabrantes.Controllers
         }
         public ActionResult ListaAdministrativos()
         {
-            // pesquisar a lista de terapeutas que exixtem na BD
+            // pesquisar a lista de administrativos que exixtem na BD
             var listaDeAdministrativos = db.Funcionarios
                                     .Where(f => f.CatProfissional.Contains("Administrat"))
                                     .OrderBy(f => f.Nome)
