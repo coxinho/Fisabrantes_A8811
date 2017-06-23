@@ -32,6 +32,18 @@ namespace Fisabrantes.Controllers
             return View();
         }
 
+        public ActionResult Tratamentos()
+        {
+            ViewBag.Message = "Tratamentos";
+
+            return View();
+        }
+        public ActionResult Acordos()
+        {
+            ViewBag.Message = "Acordos";
+
+            return View();
+        }
 
         public ActionResult ListaMedicos()
         {
@@ -64,6 +76,5 @@ namespace Fisabrantes.Controllers
 
             return View(listaDeAdministrativos);
         }
-
     }
 }

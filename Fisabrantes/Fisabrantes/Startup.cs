@@ -1,4 +1,5 @@
-﻿using Fisabrantes.Models;
+﻿using System;
+using Fisabrantes.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
@@ -15,47 +16,13 @@ namespace Fisabrantes
         }
 
         //ver o código do e-learning, para criar Roles e Utilizadores
+        // Em Startup iam criando a primeira função admin e criar um usuário Administrador padrão
         private void iniciaAplicacao()
         {
             ApplicationDbContext db = new ApplicationDbContext();
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
-
-            // criar a Role 'Médico'
-            if (!roleManager.RoleExists("Médico"))
-            {
-                // não existe a 'role'
-                // então, criar essa role
-                var role = new IdentityRole();
-                role.Name = "Médico";
-                roleManager.Create(role);
-
-                // criar um utilizador 'Médico'
-                var User = new ApplicationUser();
-                User.UserName = "fernando@a.aa";
-                User.Email = "fernando@a.aa";
-                User.Nome = "Fernando Sousa";
-                string UserPWD = "sousa";
-                var chkUser = userManager.Create(User, UserPWD);
-
-            }
-
-            // Criar a role 'Terapeuta'
-            if (!roleManager.RoleExists("Terapeuta"))
-            {
-                var role = new IdentityRole();
-                role.Name = "Terapeuta";
-                roleManager.Create(role);
-
-                // criar um utilizador 'Terapeuta'
-                var User = new ApplicationUser();
-                User.UserName = "gouveia@a.aa";
-                User.Email = "gouveia@a.aa";
-                User.Nome = "Maria Gouveia";
-                string UserPWD = "336622";
-                var chkUser = userManager.Create(User, UserPWD);
-            }
 
             // Criar a role 'Administrativo'
             if (!roleManager.RoleExists("Administrativo"))
@@ -66,8 +33,8 @@ namespace Fisabrantes
 
                 // criar um utilizador 'Administrativo'
                 var User = new ApplicationUser();
-                User.UserName = "pedro.f@a.aa";
-                User.Email = "pedro.f@a.aa";
+                User.UserName = "pedro";
+                User.Email = "pedro.f@gmail.com";
                 User.Nome = "Pedro Ferreira";
                 string UserPWD = "123pedro";
                 var chkUser = userManager.Create(User, UserPWD);
@@ -78,6 +45,7 @@ namespace Fisabrantes
                     var result1 = userManager.AddToRole(User.Id, "Administrativo");
                 }
             }
+
         }
     }
 }
