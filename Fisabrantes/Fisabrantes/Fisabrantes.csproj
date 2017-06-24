@@ -225,6 +225,7 @@
     <Content Include="Imagens\acordos.jpg" />
     <Content Include="Imagens\asistencia-domiciliaria.jpg" />
     <Content Include="Imagens\clinica.jpg" />
+    <Content Include="Imagens\masaje2.gif" />
     <Content Include="Imagens\shutterstock_279710963.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
