@@ -222,6 +222,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagens\35.jpg" />
+    <Content Include="Imagens\acordos.jpg" />
     <Content Include="Imagens\asistencia-domiciliaria.jpg" />
     <Content Include="Imagens\clinica.jpg" />
     <Content Include="Imagens\shutterstock_279710963.jpg" />
