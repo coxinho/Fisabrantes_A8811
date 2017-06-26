@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Fisabrantes.Models;
+using System.Web.Security;
 
 namespace Fisabrantes.Controllers
 {
@@ -76,10 +77,25 @@ namespace Fisabrantes.Controllers
             // This doesn't count login failures towards account lockout (Isso não contabiliza falhas de login em direção ao bloqueio de conta)
             // To enable password failures to trigger account lockout, change to shouldLockout: true (Para habilitar falhas de senha para ativar o bloqueio de conta, mude para shouldLockout: true)
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: true);
+
             switch (result)
             {
                 case SignInStatus.Success:
+                    // https://stackoverflow.com/questions/32260728/asp-net-mvc-login-and-redirect-based-on-role
+                    var user = await UserManager.FindAsync(model.Email, model.Password);
+                    var roles = await UserManager.GetRolesAsync(user.Id);
+
+                    //se o utilizador que acabou de se autenticar ´Administrativo'
+                    // é redirecionado para o conteúdo do método Index, do controller 'Funcionarios'
+                    if (roles.Contains( "Administrativo"))
+                    {
+                        return RedirectToAction("Index", "Funcionarios");
+                    }
+
+
+                    // se nao houver outra hipotese, fica esta por defeito
                     return RedirectToLocal(returnUrl);
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

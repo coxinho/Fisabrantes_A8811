@@ -13,9 +13,11 @@ namespace Fisabrantes
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            // inicia os utilizadores
+            iniciaAplicacao();
         }
 
-        //ver o código do e-learning, para criar Roles e Utilizadores
+        // Criar Roles e Utilizadores
         // Em Startup iam criando a primeira função admin e criar um usuário Administrador padrão
         private void iniciaAplicacao()
         {
@@ -23,6 +25,8 @@ namespace Fisabrantes
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+
+            string UserPWD = "aBC_123";
 
             // Criar a role 'Administrativo'
             if (!roleManager.RoleExists("Administrativo"))
@@ -33,10 +37,10 @@ namespace Fisabrantes
 
                 // criar um utilizador 'Administrativo'
                 var User = new ApplicationUser();
-                User.UserName = "pedro";
+                User.UserName = "pedro.f@gmail.com"; // login
                 User.Email = "pedro.f@gmail.com";
                 User.Nome = "Pedro Ferreira";
-                string UserPWD = "123pedro";
+
                 var chkUser = userManager.Create(User, UserPWD);
 
                 //Adicionar o Utilizador à respetiva Role-Administrativo-

@@ -11,7 +11,7 @@ using Fisabrantes.Models;
 namespace Fisabrantes.Controllers
 {
 
-    [Authorize(Roles = "Administativo")]
+    [Authorize(Roles = "Administrativo")]
     public class FuncionariosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -19,6 +19,7 @@ namespace Fisabrantes.Controllers
         // GET: Funcionarios
         public ActionResult Index()
         {
+      
             return View(db.Funcionarios.ToList());
         }
 
