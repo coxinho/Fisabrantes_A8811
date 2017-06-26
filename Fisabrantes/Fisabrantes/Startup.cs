@@ -28,6 +28,41 @@ namespace Fisabrantes
 
             string UserPWD = "aBC_123";
 
+            // criar a Role 'Médico'
+            if (!roleManager.RoleExists("Medico"))
+            {
+                // não existe a 'role'
+                // então, criar essa role
+                var role = new IdentityRole();
+                role.Name = "Medico";
+                roleManager.Create(role);
+
+                // criar um utilizador 'Médico'
+                var User = new ApplicationUser();
+                User.UserName = "fernando@gmail.com"; // login
+                User.Email = "fernando@gmail.com";
+                User.Nome = "Fernando Sousa";
+
+                var chkUser = userManager.Create(User, UserPWD);
+            }
+
+            // Criar a role 'Terapeuta'
+            if (!roleManager.RoleExists("Terapeuta"))
+            {
+                var role = new IdentityRole();
+                role.Name = "Terapeuta";
+                roleManager.Create(role);
+
+                // criar um utilizador 'Terapeuta'
+                var User = new ApplicationUser();
+                User.UserName = "susana@gmail.com"; // login
+                User.Email = "susana@gmail.com";
+                User.Nome = "Susana Pereira";
+
+                var chkUser = userManager.Create(User, UserPWD);
+
+            }
+
             // Criar a role 'Administrativo'
             if (!roleManager.RoleExists("Administrativo"))
             {

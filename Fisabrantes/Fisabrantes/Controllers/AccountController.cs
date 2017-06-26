@@ -87,11 +87,18 @@ namespace Fisabrantes.Controllers
 
                     //se o utilizador que acabou de se autenticar ´Administrativo'
                     // é redirecionado para o conteúdo do método Index, do controller 'Funcionarios'
-                    if (roles.Contains( "Administrativo"))
+                    if (roles.Contains( "Medico"))
                     {
                         return RedirectToAction("Index", "Funcionarios");
                     }
-
+                    if (roles.Contains("Terapeuta"))
+                    {
+                        return RedirectToAction("Index", "Funcionarios");
+                    }
+                    if (roles.Contains("Administrativo"))
+                    {
+                        return RedirectToAction("Index", "Funcionarios");
+                    }
 
                     // se nao houver outra hipotese, fica esta por defeito
                     return RedirectToLocal(returnUrl);
