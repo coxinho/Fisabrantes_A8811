@@ -50,7 +50,7 @@ namespace Fisabrantes
             if (!roleManager.RoleExists("Terapeuta"))
             {
                 var role = new IdentityRole();
-                role.Name = "Terapeuta";
+                role.Name = "Terapeutas";
                 roleManager.Create(role);
 
                 // criar um utilizador 'Terapeuta'
