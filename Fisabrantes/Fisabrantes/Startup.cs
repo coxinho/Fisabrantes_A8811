@@ -76,6 +76,13 @@ namespace Fisabrantes
                 User.Email = "pedro.f@gmail.com";
                 User.Nome = "Pedro Ferreira";
 
+                User.UserName = "lurdes@gmail.com"; // login
+                User.Email = "lurdes@gmail.com";
+                User.Nome = "Lurdes Fontes";
+
+                User.UserName = "santos@gmail.com"; // login
+                User.Email = "santos@gmail.com";
+                User.Nome = "Vitor Santos";
                 var chkUser = userManager.Create(User, UserPWD);
 
                 //Adicionar o Utilizador à respetiva Role-Administrativo-
