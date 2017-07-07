@@ -11,7 +11,7 @@ using Fisabrantes.Models;
 namespace Fisabrantes.Controllers
 {
 
-    [Authorize(Roles = "Administrativo")]
+    [Authorize(Roles = "Administrativo, Medico, Terapeuta")]
     public class FuncionariosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

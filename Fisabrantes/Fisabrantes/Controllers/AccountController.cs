@@ -159,7 +159,7 @@ namespace Fisabrantes.Controllers
 
         //
         // GET: /Account/Register
-        [Authorize(Roles = "Administativo")]
+        [Authorize(Roles = "Administativo, Medico, Terapeuta")]
         public ActionResult Register()
         {
             return View();
@@ -168,7 +168,7 @@ namespace Fisabrantes.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [Authorize(Roles = "Administativo")]
+        [Authorize(Roles = "Administativo, Medico, Terapeuta")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
