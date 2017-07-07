@@ -26,7 +26,7 @@ namespace Fisabrantes
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
 
-            string UserPWD = "aBC_123";
+            string userPWD = "aBC_123";
 
             // criar a Role 'Médico'
             if (!roleManager.RoleExists("Medico"))
@@ -43,7 +43,12 @@ namespace Fisabrantes
                 User.Email = "fernando@gmail.com";
                 User.Nome = "Fernando Sousa";
 
-                var chkUser = userManager.Create(User, UserPWD);
+                var chkUser = userManager.Create(User, userPWD);
+                //Adicionar o Utilizador à respetiva Role-Medico-
+                if (chkUser.Succeeded)
+                {
+                    var result1 = userManager.AddToRole(User.Id, "Medico");
+                }
             }
 
             // Criar a role 'Terapeuta'
@@ -59,8 +64,12 @@ namespace Fisabrantes
                 User.Email = "susana@gmail.com";
                 User.Nome = "Susana Pereira";
 
-                var chkUser = userManager.Create(User, UserPWD);
-
+                var chkUser = userManager.Create(User, userPWD);
+                //Adicionar o Utilizador à respetiva Role-Terapeuta-
+                if (chkUser.Succeeded)
+                {
+                    var result1 = userManager.AddToRole(User.Id, "Terapeuta");
+                }
             }
 
             // Criar a role 'Administrativo'
@@ -70,25 +79,26 @@ namespace Fisabrantes
                 role.Name = "Administrativo";
                 roleManager.Create(role);
 
-                // criar um utilizador 'Administrativo'
-                var User = new ApplicationUser();
-                User.UserName = "pedro.f@gmail.com"; // login
-                User.Email = "pedro.f@gmail.com";
-                User.Nome = "Pedro Ferreira";
+                // criar  utilizadores 'Administrativo'
+                string[] loginDosUtilizadores = { "pedro.f@gmail.com", "lurdes@gmail.com", "santos@gmail.com" };
+                string[] nomeDosUtilizadores = { "Pedro Ferreira", "Lurdes Fontes", "Vitor Santos" };
 
-                User.UserName = "lurdes@gmail.com"; // login
-                User.Email = "lurdes@gmail.com";
-                User.Nome = "Lurdes Fontes";
 
-                User.UserName = "santos@gmail.com"; // login
-                User.Email = "santos@gmail.com";
-                User.Nome = "Vitor Santos";
-                var chkUser = userManager.Create(User, UserPWD);
-
-                //Adicionar o Utilizador à respetiva Role-Administrativo-
-                if (chkUser.Succeeded)
+                // cria os utilizadores
+                for (int i = 0; i < loginDosUtilizadores.Length; i++)
                 {
-                    var result1 = userManager.AddToRole(User.Id, "Administrativo");
+                    var user = new ApplicationUser();
+                    user.UserName = loginDosUtilizadores[i];
+                    user.Email = loginDosUtilizadores[i];
+                    user.Nome = nomeDosUtilizadores[i];
+                    user.EmailConfirmed = true;
+                    var chkUser = userManager.Create(user, userPWD);
+
+                    //Adicionar o Utilizador à respetiva Role-Dono-
+                    if (chkUser.Succeeded)
+                    {
+                        var result1 = userManager.AddToRole(user.Id, "Administrativo");
+                    }
                 }
             }
 

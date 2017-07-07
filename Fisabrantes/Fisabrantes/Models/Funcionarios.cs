@@ -40,10 +40,16 @@ namespace Fisabrantes.Models
         public string NIF { get; set; }
 
         [Display(Name = "Data de Entrada na Clínica")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime DataEntClinica { get; set; }
 
         [Display(Name = "Nº Carteira Profissional")]
         public string CatProfissional { get; set; }
+
+        //********************************************************************************     
+        // atributo para relacionar os 'funcionários' com os dados da Autenticaçao
+     //   [Required]
+        public string UserName { get; set; }
 
         //********************************************************************************
         // lista das Consultas associadas ao Funcionário
