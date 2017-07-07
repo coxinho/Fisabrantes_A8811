@@ -41,7 +41,7 @@
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Utentes</li>
                             <li>@Html.ActionLink("Lista de Utentes", "Index", "Utentes")</li>
-                            <li><a href="#">One more separated link</a></li>
+                            <li>@Html.ActionLink("Lista de Consultas de Utentes", "Index", "Utentes")</li>
                         </ul>
                     </li>
                     }
@@ -55,7 +55,7 @@
         @RenderBody()
         <footer>
             <p style="text-align: right">
-                Tecnologias da Internet II   ***   Maria Cristina Neto Coxinho Nº 8811
+                ***   Tecnologias da Internet II   ***   Maria Cristina Neto Coxinho Nº 8811   ***
             </p>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>

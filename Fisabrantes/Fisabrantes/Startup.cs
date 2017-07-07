@@ -38,16 +38,24 @@ namespace Fisabrantes
                 roleManager.Create(role);
 
                 // criar um utilizador 'Médico'
-                var User = new ApplicationUser();
-                User.UserName = "fernando@gmail.com"; // login
-                User.Email = "fernando@gmail.com";
-                User.Nome = "Fernando Sousa";
+                string[] loginDosUtilizadores = { "fernando@gmail.com", "silvia@gmail.com", "fdias@gmail.com" };
+                string[] nomeDosUtilizadores = { "Fernando Sousa", "Sílvia Marques", "Francisco Dias" };
 
-                var chkUser = userManager.Create(User, userPWD);
-                //Adicionar o Utilizador à respetiva Role-Medico-
-                if (chkUser.Succeeded)
+                // cria os utilizadores
+                for (int i = 0; i < loginDosUtilizadores.Length; i++)
                 {
-                    var result1 = userManager.AddToRole(User.Id, "Medico");
+                    var user = new ApplicationUser();
+                    user.UserName = loginDosUtilizadores[i];
+                    user.Email = loginDosUtilizadores[i];
+                    user.Nome = nomeDosUtilizadores[i];
+                    user.EmailConfirmed = true;
+                    var chkUser = userManager.Create(user, userPWD);
+
+                    //Adicionar o Utilizador à respetiva Role-Medico-
+                    if (chkUser.Succeeded)
+                    {
+                        var result1 = userManager.AddToRole(user.Id, "Medico");
+                    }
                 }
             }
 
@@ -58,17 +66,26 @@ namespace Fisabrantes
                 role.Name = "Terapeuta";
                 roleManager.Create(role);
 
-                // criar um utilizador 'Terapeuta'
-                var User = new ApplicationUser();
-                User.UserName = "susana@gmail.com"; // login
-                User.Email = "susana@gmail.com";
-                User.Nome = "Susana Pereira";
+                // criar  utilizadores 'Terapeuta'
+                string[] loginDosUtilizadores = { "susana@gmail.com", "mgouveia@gmail.com", "celeste@gmail.com", "manlopes" };
+                string[] nomeDosUtilizadores = { "Susana Pereira", "Maria Gouveia", "Celeste Gomes", "Manuel Lopes" };
 
-                var chkUser = userManager.Create(User, userPWD);
-                //Adicionar o Utilizador à respetiva Role-Terapeuta-
-                if (chkUser.Succeeded)
+
+                // cria os utilizadores
+                for (int i = 0; i < loginDosUtilizadores.Length; i++)
                 {
-                    var result1 = userManager.AddToRole(User.Id, "Terapeuta");
+                    var user = new ApplicationUser();
+                    user.UserName = loginDosUtilizadores[i];
+                    user.Email = loginDosUtilizadores[i];
+                    user.Nome = nomeDosUtilizadores[i];
+                    user.EmailConfirmed = true;
+                    var chkUser = userManager.Create(user, userPWD);
+
+                    //Adicionar o Utilizador à respetiva Role-Terapeuta-
+                    if (chkUser.Succeeded)
+                    {
+                        var result1 = userManager.AddToRole(user.Id, "Terapeuta");
+                    }
                 }
             }
 
@@ -94,7 +111,7 @@ namespace Fisabrantes
                     user.EmailConfirmed = true;
                     var chkUser = userManager.Create(user, userPWD);
 
-                    //Adicionar o Utilizador à respetiva Role-Dono-
+                    //Adicionar o Utilizador à respetiva Role-Administrativo-
                     if (chkUser.Succeeded)
                     {
                         var result1 = userManager.AddToRole(user.Id, "Administrativo");
