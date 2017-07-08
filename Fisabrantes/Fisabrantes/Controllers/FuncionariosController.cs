@@ -31,6 +31,8 @@ namespace Fisabrantes.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Funcionarios funcionarios = db.Funcionarios.Find(id);
+
+            //para pesquisar os 'funcionários' do centro 'fisabrantes'
             if (funcionarios == null)
             {
                 return HttpNotFound();
@@ -39,6 +41,7 @@ namespace Fisabrantes.Controllers
         }
 
         // GET: Funcionarios/Create
+        [Authorize(Roles = "Administrativo")] //só os funcionários com esta ROLE podem criar outros funcionários
         public ActionResult Create()
         {
             return View();
@@ -49,6 +52,7 @@ namespace Fisabrantes.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrativo")] //só os funcionários com esta ROLE podem criar outros funcionários
         public ActionResult Create([Bind(Include = "idFuncionario,Nome,DataNasc,Rua,NumPorta,Localidade,CodPostal,NIF,DataEntClinica,CatProfissional")] Funcionarios funcionarios)
         {
             if (ModelState.IsValid)
@@ -95,16 +99,18 @@ namespace Fisabrantes.Controllers
         // GET: Funcionarios/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (id == null) // se o parâmetro ID não for fornecido ... 
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index"); //redirecionamos para 'index'
             }
-            Funcionarios funcionarios = db.Funcionarios.Find(id);
-            if (funcionarios == null)
+            Funcionarios funcionarios = db.Funcionarios.Find(id); //pesquisa funcionário associado ao ID
+            if (funcionarios == null) //se o funcionário não for encontrado
             {
-                return HttpNotFound();
+                //return HttpNotFound(); 
+                return RedirectToAction("Index"); //redirecionamos para 'index'
             }
-            return View(funcionarios);
+            return View(funcionarios); // mostra a view com os dados do 'funcionário'
         }
 
         // POST: Funcionarios/Delete/5
@@ -112,10 +118,11 @@ namespace Fisabrantes.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            //procura na BD por um funcionário cujo 'IdFuncionário' seja igual ao parâmetro fornecido
             Funcionarios funcionarios = db.Funcionarios.Find(id);
-            db.Funcionarios.Remove(funcionarios);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            db.Funcionarios.Remove(funcionarios);// retira à BD o objeto identificado acima
+            db.SaveChanges();// torna definitiva a alteração na BD
+            return RedirectToAction("Index");// redireciona o controlo da ação para a view 'Index'
         }
 
         protected override void Dispose(bool disposing)

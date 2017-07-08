@@ -67,7 +67,7 @@ namespace Fisabrantes
                 roleManager.Create(role);
 
                 // criar  utilizadores 'Terapeuta'
-                string[] loginDosUtilizadores = { "susana@gmail.com", "mgouveia@gmail.com", "celeste@gmail.com", "manlopes" };
+                string[] loginDosUtilizadores = { "susana@gmail.com", "mgouveia@gmail.com", "celeste@gmail.com", "manlopes@gmail.com" };
                 string[] nomeDosUtilizadores = { "Susana Pereira", "Maria Gouveia", "Celeste Gomes", "Manuel Lopes" };
 
 

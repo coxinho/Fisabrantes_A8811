@@ -16,7 +16,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        @if (User.IsInRole("Administativo"))
+        @if (User.IsInRole("Administativo, Medico, Terapeuta"))
         {
             <li>@Html.ActionLink("Registar", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         }

@@ -22,6 +22,7 @@ namespace Fisabrantes.Models
         public string Nome { get; set; }
 
         [Display(Name = "Data do Nascimento")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime DataNasc { get; set; }
 
         [Display(Name = "Rua")]
