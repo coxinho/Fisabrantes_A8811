@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Fisabrantes.Models.Funcionarios>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ListaDePrescricoes</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idPrescricao }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.idPrescricao }) |
+                @Html.ActionLink("Apagar", "Delete", new { id = item.idPrescricao })
+            </td>
+        </tr>
+    }
+
+</table>
+
