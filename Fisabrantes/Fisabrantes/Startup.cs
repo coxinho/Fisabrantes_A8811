@@ -31,8 +31,7 @@ namespace Fisabrantes
             // criar a Role 'Médico'
             if (!roleManager.RoleExists("Medico"))
             {
-                // não existe a 'role'
-                // então, criar essa role
+                // se a 'role' não existe, então: criar essa role
                 var role = new IdentityRole();
                 role.Name = "Medico";
                 roleManager.Create(role);
@@ -118,7 +117,35 @@ namespace Fisabrantes
                     }
                 }
             }
+            // Criar a role 'Utente'
+            if (!roleManager.RoleExists("Utente"))
+            {
+                var role = new IdentityRole();
+                role.Name = "Utente";
+                roleManager.Create(role);
 
+                // criar  utilizadores 'Utente'
+                string[] loginDosUtilizadores = { "criscox@gmail.com"};
+                string[] nomeDosUtilizadores = { "Cristina Coxinho" };
+
+
+                // cria os utilizadores
+                for (int i = 0; i < loginDosUtilizadores.Length; i++)
+                {
+                    var user = new ApplicationUser();
+                    user.UserName = loginDosUtilizadores[i];
+                    user.Email = loginDosUtilizadores[i];
+                    user.Nome = nomeDosUtilizadores[i];
+                    user.EmailConfirmed = true;
+                    var chkUser = userManager.Create(user, userPWD);
+
+                    //Adicionar o Utilizador à respetiva Role-Utente-
+                    if (chkUser.Succeeded)
+                    {
+                        var result1 = userManager.AddToRole(user.Id, "Utente");
+                    }
+                }
+            }
         }
     }
 }

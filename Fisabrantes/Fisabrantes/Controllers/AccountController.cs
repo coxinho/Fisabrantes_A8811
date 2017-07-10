@@ -99,6 +99,10 @@ namespace Fisabrantes.Controllers
                     {
                         return RedirectToAction("Index", "Funcionarios");
                     }
+                    if (roles.Contains("Utentes"))
+                    {
+                        return RedirectToAction("Index", "Funcionarios");
+                    }
 
                     // se nao houver outra hipotese, fica esta por defeito
                     return RedirectToLocal(returnUrl);
@@ -109,7 +113,7 @@ namespace Fisabrantes.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Login inválido.");
                     return View(model);
             }
         }
@@ -152,14 +156,14 @@ namespace Fisabrantes.Controllers
                     return View("Lockout");
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid code.");
+                    ModelState.AddModelError("", "Código inválido.");
                     return View(model);
             }
         }
 
         //
         // GET: /Account/Register
-        [Authorize(Roles = "Administativo, Medico, Terapeuta")]
+        [Authorize(Roles = "Administativo, Medico, Terapeuta, Utente")]
         public ActionResult Register()
         {
             return View();
@@ -168,7 +172,7 @@ namespace Fisabrantes.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [Authorize(Roles = "Administativo, Medico, Terapeuta")]
+        [Authorize(Roles = "Administativo, Medico, Terapeuta, Utente")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -181,8 +185,6 @@ namespace Fisabrantes.Controllers
                     // a conta foi criada
                     // adicionar a pessoa ao ROLE específico
                     var result1 = UserManager.AddToRole(user.Id, model.RoleAtribuidoAuUser);
-
-
 
                     //  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 

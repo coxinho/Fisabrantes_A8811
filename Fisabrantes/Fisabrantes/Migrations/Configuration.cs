@@ -45,7 +45,8 @@ namespace Fisabrantes.Migrations
                 new Utentes  {idUtente=2, Nome = "Joana Lopes", DataNasc = new DateTime (1950,6,3), NIF ="122845676", Telefone = "923654871", Morada = "Ponte de Sôr", CodPostal = "7400-123", SNS = "395654890"  },
                 new Utentes  {idUtente=3, Nome = "Lurdes Costa", DataNasc = new DateTime (1970,8,2), NIF ="133867453", Telefone = "931540761", Morada = "Abrantes", CodPostal = "2200-350", SNS = "395111453"  },
                 new Utentes  {idUtente=4, Nome = "José Bernardo", DataNasc = new DateTime (1961,4,27), NIF ="187231569", Telefone = "965214629", Morada = "Tramagal", CodPostal = "2200-332", SNS = "395275998"  },
-                new Utentes  {idUtente=5, Nome = "Jorge Santos", DataNasc = new DateTime (1940,7,20), NIF ="144089327", Telefone = "913638510", Morada = "Tomar", CodPostal = "2304-909", SNS = "395003564"  }
+                new Utentes  {idUtente=5, Nome = "Jorge Santos", DataNasc = new DateTime (1940,7,20), NIF ="144089327", Telefone = "913638510", Morada = "Tomar", CodPostal = "2304-909", SNS = "395003564"  },
+                new Utentes  {idUtente=6, Nome = "Cristina Coxinho", DataNasc = new DateTime (1967,8,7), NIF = "182432586", Telefone = "966737701", Morada = "Abrantes", CodPostal = "2205-411", SNS = "395232176"}
             };
 
             Utentes.ForEach(dd => context.Utentes.AddOrUpdate(d => d.Nome, dd));

@@ -11,7 +11,7 @@ using Fisabrantes.Models;
 namespace Fisabrantes.Controllers
 {
 
-    [Authorize(Roles = "Administrativo, Medico, Terapeuta")]
+    [Authorize(Roles = "Administrativo, Medico, Terapeuta, Utente")]
     public class FuncionariosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -66,6 +66,7 @@ namespace Fisabrantes.Controllers
         }
 
         // GET: Funcionarios/Edit/5
+        [Authorize(Roles = "Administrativo")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -97,6 +98,7 @@ namespace Fisabrantes.Controllers
         }
 
         // GET: Funcionarios/Delete/5
+        [Authorize(Roles = "Administrativo")]
         public ActionResult Delete(int? id)
         {
             if (id == null) // se o parâmetro ID não for fornecido ... 
