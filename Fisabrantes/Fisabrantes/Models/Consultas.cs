@@ -19,6 +19,7 @@ namespace Fisabrantes.Models
         public int idConsulta { get; set; }
 
         [Column(TypeName = "date")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime DataConsulta { get; set; }
 
         [ForeignKey("Utente")]
