@@ -196,10 +196,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ConsultasController.cs" />
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PrescricoesController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\UtentesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -290,13 +293,22 @@
     <Content Include="Views\Role\Create.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Home\Acordos.cshtml" />
-    <Content Include="Views\Prescricoes\ListaDePrescricoes.cshtml" />
-    <Content Include="Views\Utentes\ListaDeUtentes.cshtml" />
     <Content Include="Views\Funcionarios\ListaDeConsultas.cshtml" />
+    <Content Include="Views\Utentes\Create.cshtml" />
+    <Content Include="Views\Utentes\Delete.cshtml" />
+    <Content Include="Views\Utentes\Details.cshtml" />
+    <Content Include="Views\Utentes\Edit.cshtml" />
+    <Content Include="Views\Utentes\Index.cshtml" />
+    <Content Include="Views\Consultas\Create.cshtml" />
+    <Content Include="Views\Consultas\Delete.cshtml" />
+    <Content Include="Views\Consultas\Details.cshtml" />
+    <Content Include="Views\Consultas\Edit.cshtml" />
+    <Content Include="Views\Consultas\Index.cshtml" />
     <Content Include="Views\Prescricoes\Create.cshtml" />
     <Content Include="Views\Prescricoes\Delete.cshtml" />
     <Content Include="Views\Prescricoes\Details.cshtml" />
     <Content Include="Views\Prescricoes\Edit.cshtml" />
+    <Content Include="Views\Prescricoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
