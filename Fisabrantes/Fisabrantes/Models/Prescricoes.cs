@@ -17,7 +17,9 @@ namespace Fisabrantes.Models
 
         [ForeignKey("Consulta")]
         public int ConsultaFK { get; set; }
+
         public virtual Consultas Consulta { get; set; }
+
         public string Nome { get; internal set; }
     }
 }

@@ -13,33 +13,33 @@ namespace Fisabrantes.Models
         public Utentes()
         {
             ListaDeConsultasAoUtente = new HashSet<Consultas>();
-            ListaDeUtentes = new HashSet<Utentes>();
+            //ListaDeUtentes = new HashSet<Utentes>();
         }
 
 
         [Key]
         public int idUtente { get; set; }
 
-        [Display(Name ="Nome do Utente")]
+        [Display(Name = "Nome do Utente")]
         public string Nome { get; set; }
 
-        [Display(Name ="Data de Nascimento")]
+        [Display(Name = "Data de Nascimento")]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime DataNasc { get; set; }
 
-        [Display(Name ="NIF")]
+        [Display(Name = "NIF")]
         public string NIF { get; set; }
 
-        [Display(Name ="Nº de Telefone")]
+        [Display(Name = "Nº de Telefone")]
         public string Telefone { get; set; }
 
-        [Display(Name ="Morada")]
+        [Display(Name = "Morada")]
         public string Morada { get; set; }
 
-        [Display(Name ="Código Postal")]
+        [Display(Name = "Código Postal")]
         public string CodPostal { get; set; }
 
-        [Display(Name ="Sistema Nacional Saúde")]
+        [Display(Name = "Sistema Nacional Saúde")]
         public string SNS { get; set; }
 
         //**************************************************************************
@@ -47,7 +47,6 @@ namespace Fisabrantes.Models
         public virtual ICollection<Consultas> ListaDeConsultasAoUtente { get; set; }
 
         // Lista de Utentes inscritos no Centro de Fisioterapia
-        public virtual ICollection<Utentes> ListaDeUtentes { get; set }
-
+        //public virtual ICollection<Utentes> ListaDeUtentes { get; set }
     }
 }
