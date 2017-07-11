@@ -1,13 +1,14 @@
 ﻿@model Fisabrantes.Models.Prescricoes
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Delete";
 }
 
-<h2>Detalhes</h2>
+<h2>Apagar</h2>
 
+<h3>Tem certeza de que pretende excluir a prescrição?</h3>
 <div>
-    <h4>Prescrições</h4>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -26,7 +27,7 @@
             @Html.DisplayFor(model => model.Consulta)
         </dd>
 
-        <dt>
+         <dt>
             @Html.DisplayNameFor(model => model.Descricao)
         </dt>
 
@@ -35,8 +36,13 @@
         </dd>
 
     </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Apagar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar à lista", "Index")
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.idPrescricao }) |
-    @Html.ActionLink("Voltar à lista", "Index")
-</p>

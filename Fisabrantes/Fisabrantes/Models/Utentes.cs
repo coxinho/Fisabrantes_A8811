@@ -13,6 +13,7 @@ namespace Fisabrantes.Models
         public Utentes()
         {
             ListaDeConsultasAoUtente = new HashSet<Consultas>();
+            ListaDeUtentes = new HashSet<Utentes>();
         }
 
 
@@ -44,6 +45,9 @@ namespace Fisabrantes.Models
         //**************************************************************************
         // Lista das Consultas associadas ao Utente
         public virtual ICollection<Consultas> ListaDeConsultasAoUtente { get; set; }
+
+        // Lista de Utentes inscritos no Centro de Fisioterapia
+        public virtual ICollection<Utentes> ListaDeUtentes { get; set }
 
     }
 }

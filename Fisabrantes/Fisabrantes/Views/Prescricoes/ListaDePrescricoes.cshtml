@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Fisabrantes.Models.Funcionarios>
+﻿@model IEnumerable<Fisabrantes.Models.Prescricoes>
 
 @{
     ViewBag.Title = "Index";
@@ -6,12 +6,16 @@
 
 <h2>ListaDePrescricoes</h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar nova prescricao", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
 
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
         </th>
         <th></th>
     </tr>
@@ -19,6 +23,13 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
 
             <td>
                 @Html.ActionLink("Editar", "Edit", new { id = item.idPrescricao }) |
