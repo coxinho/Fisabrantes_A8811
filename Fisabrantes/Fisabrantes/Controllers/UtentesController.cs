@@ -33,7 +33,9 @@ namespace Fisabrantes.Controllers
             Utentes utentes = db.Utentes.Find(id);
             if (utentes == null)
             {
-                return HttpNotFound();
+                //redirecionamos para a listagem 'index' dos 'utentes'
+                return RedirectToAction("Index");
+                //return HttpNotFound();
             }
             return View(utentes);
         }
@@ -74,7 +76,9 @@ namespace Fisabrantes.Controllers
             Utentes utentes = db.Utentes.Find(id);
             if (utentes == null)
             {
-                return HttpNotFound();
+                //redirecionamos para a listagem 'index' dos 'utentes'
+                return RedirectToAction("Index");
+                //return HttpNotFound();
             }
             return View(utentes);
         }
@@ -107,7 +111,9 @@ namespace Fisabrantes.Controllers
             Utentes utentes = db.Utentes.Find(id);
             if (utentes == null)
             {
-                return HttpNotFound();
+                //redirecionamos para a listagem 'index' dos 'utentes'
+                return RedirectToAction("Index");
+                //return HttpNotFound();
             }
             return View(utentes);
         }

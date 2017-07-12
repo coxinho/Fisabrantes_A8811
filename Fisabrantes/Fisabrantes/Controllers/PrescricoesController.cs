@@ -10,6 +10,7 @@ using Fisabrantes.Models;
 
 namespace Fisabrantes.Controllers
 {
+    [Authorize(Roles ="Medico, Terapeuta")]
     public class PrescricoesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -22,6 +23,7 @@ namespace Fisabrantes.Controllers
         }
 
         // GET: Prescricoes/Details/5
+        [Authorize(Roles = "Medico")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -31,12 +33,15 @@ namespace Fisabrantes.Controllers
             Prescricoes prescricoes = db.Prescricao.Find(id);
             if (prescricoes == null)
             {
-                return HttpNotFound();
+                //redirecionamos para a listagem 'index' das 'prescrições'
+                return RedirectToAction("Index");
+                //return HttpNotFound();
             }
             return View(prescricoes);
         }
 
         // GET: Prescricoes/Create
+        [Authorize(Roles = "Medico")]
         public ActionResult Create()
         {
             ViewBag.ConsultaFK = new SelectList(db.Consultas, "idConsulta", "idConsulta");
@@ -48,6 +53,7 @@ namespace Fisabrantes.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Medico")]
         public ActionResult Create([Bind(Include = "idPrescricao,Descricao,ConsultaFK,Nome")] Prescricoes prescricoes)
         {
             if (ModelState.IsValid)
@@ -62,6 +68,7 @@ namespace Fisabrantes.Controllers
         }
 
         // GET: Prescricoes/Edit/5
+        [Authorize(Roles = "Medico")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -71,7 +78,9 @@ namespace Fisabrantes.Controllers
             Prescricoes prescricoes = db.Prescricao.Find(id);
             if (prescricoes == null)
             {
-                return HttpNotFound();
+                //redirecionamos para a listagem 'index' das 'prescrições'
+                return RedirectToAction("Index");
+                //return HttpNotFound();
             }
             ViewBag.ConsultaFK = new SelectList(db.Consultas, "idConsulta", "idConsulta", prescricoes.ConsultaFK);
             return View(prescricoes);
@@ -82,6 +91,7 @@ namespace Fisabrantes.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Medico")]
         public ActionResult Edit([Bind(Include = "idPrescricao,Descricao,ConsultaFK,Nome")] Prescricoes prescricoes)
         {
             if (ModelState.IsValid)
@@ -95,6 +105,7 @@ namespace Fisabrantes.Controllers
         }
 
         // GET: Prescricoes/Delete/5
+        [Authorize(Roles = "Medico")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +115,9 @@ namespace Fisabrantes.Controllers
             Prescricoes prescricoes = db.Prescricao.Find(id);
             if (prescricoes == null)
             {
-                return HttpNotFound();
+                //redirecionamos para a listagem 'index' das 'prescrições'
+                return RedirectToAction("Index");
+                //return HttpNotFound();
             }
             return View(prescricoes);
         }
@@ -112,6 +125,7 @@ namespace Fisabrantes.Controllers
         // POST: Prescricoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Medico")]
         public ActionResult DeleteConfirmed(int id)
         {
             Prescricoes prescricoes = db.Prescricao.Find(id);

@@ -20,7 +20,7 @@ namespace Fisabrantes.Controllers
         public ActionResult Index()
         {
             var consultas = db.Consultas.Include(c => c.Fisiatra).Include(c => c.Utente);
-            return View(consultas.ToList());
+            return View(consultas.ToList());//apresenta a lista de consultas
         }
 
         // GET: Consultas/Details/5
@@ -34,7 +34,9 @@ namespace Fisabrantes.Controllers
             Consultas consultas = db.Consultas.Find(id);
             if (consultas == null)
             {
-                return HttpNotFound();
+                //redirecionamos para a listagem 'index' das 'consultas'
+                return RedirectToAction("Index");
+                //return HttpNotFound();
             }
             return View(consultas);
         }
@@ -79,7 +81,9 @@ namespace Fisabrantes.Controllers
             Consultas consultas = db.Consultas.Find(id);
             if (consultas == null)
             {
-                return HttpNotFound();
+                //redirecionamos para a listagem 'index' das 'consultas'
+                return RedirectToAction("Index");
+                //return HttpNotFound();
             }
             ViewBag.FisiatraFK = new SelectList(db.Funcionarios, "idFuncionario", "Nome", consultas.FisiatraFK);
             ViewBag.UtenteFK = new SelectList(db.Utentes, "idUtente", "Nome", consultas.UtenteFK);
@@ -116,7 +120,9 @@ namespace Fisabrantes.Controllers
             Consultas consultas = db.Consultas.Find(id);
             if (consultas == null)
             {
-                return HttpNotFound();
+                //redirecionamos para a listagem 'index' das 'consultas'
+                return RedirectToAction("Index");
+                //return HttpNotFound();
             }
             return View(consultas);
         }

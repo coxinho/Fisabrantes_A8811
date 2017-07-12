@@ -11,31 +11,43 @@ using Fisabrantes.Models;
 namespace Fisabrantes.Controllers
 {
 
-    [Authorize(Roles = "Administrativo, Medico, Terapeuta, Utente")]
+    [Authorize] //impedir que pessoas não autenticadas, acedam aos recursos deste controller
     public class FuncionariosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Funcionarios
+        [AllowAnonymous]//permitir que, momentaneamente, qualquer pessoa visualize
         public ActionResult Index()
         {
-
-            return View(db.Funcionarios.ToList());
+            //se o utilizador for do tipo ADMINISTRATIVO ou do tipo TERAPEUTA
+            if (User.IsInRole("Administrativo") || User.IsInRole("Terapeuta"))
+            {
+                return View(db.Funcionarios.ToList().OrderBy(dd => dd.Nome));
+            }
+            // se for do tipo MÉDICO
+            return View(db.Funcionarios
+              .Where(d => d.UserName == User.Identity.Name)
+              .ToList());
         }
 
         // GET: Funcionarios/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (id == null)//se o parâmetro ID não for fornecido
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //procura na BD os 'funcionários' cujo 'id' seja igual ao parâmetro fornecido
             Funcionarios funcionarios = db.Funcionarios.Find(id);
 
-            //para pesquisar os 'funcionários' do centro 'fisabrantes'
+            //se o 'funcionário' do centro 'fisabrantes' não for encontrado,
+            //redirecionamos para a listagem dos 'funcionários'
             if (funcionarios == null)
             {
-                return HttpNotFound();
+                // redirecionamos para a listagem 'index' dos 'funcionários'
+                return RedirectToAction("Index");
+                //return HttpNotFound();
             }
             return View(funcionarios);
         }
@@ -76,7 +88,8 @@ namespace Fisabrantes.Controllers
             Funcionarios funcionarios = db.Funcionarios.Find(id);
             if (funcionarios == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index"); //redirecionamos para a listagem 'index' dos 'funcionários'
+                //return HttpNotFound();
             }
             return View(funcionarios);
         }
@@ -104,13 +117,13 @@ namespace Fisabrantes.Controllers
             if (id == null) // se o parâmetro ID não for fornecido ... 
             {
                 //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                return RedirectToAction("Index"); //redirecionamos para 'index'
+                return RedirectToAction("Index"); //redirecionamos para a listagem 'index' dos 'funcionários'
             }
             Funcionarios funcionarios = db.Funcionarios.Find(id); //pesquisa funcionário associado ao ID
             if (funcionarios == null) //se o funcionário não for encontrado
             {
                 //return HttpNotFound(); 
-                return RedirectToAction("Index"); //redirecionamos para 'index'
+                return RedirectToAction("Index"); //redirecionamos para a listagem 'index' dos 'funcionários'
             }
             return View(funcionarios); // mostra a view com os dados do 'funcionário'
         }

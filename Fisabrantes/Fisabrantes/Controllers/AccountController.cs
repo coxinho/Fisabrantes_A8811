@@ -85,7 +85,7 @@ namespace Fisabrantes.Controllers
                     var user = await UserManager.FindAsync(model.Email, model.Password);
                     var roles = await UserManager.GetRolesAsync(user.Id);
 
-                    //se o utilizador que acabou de se autenticar ´Administrativo'
+                    //se o utilizador que acabou de se autenticar 'Administrativo', 'Médico', 'Terapeuta' ou 'Utente'
                     // é redirecionado para o conteúdo do método Index, do controller 'Funcionarios'
                     if (roles.Contains( "Medico"))
                     {
