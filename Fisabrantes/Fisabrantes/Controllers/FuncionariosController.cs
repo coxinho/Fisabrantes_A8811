@@ -19,7 +19,7 @@ namespace Fisabrantes.Controllers
         // GET: Funcionarios
         public ActionResult Index()
         {
-      
+
             return View(db.Funcionarios.ToList());
         }
 

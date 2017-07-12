@@ -20,6 +20,5 @@ namespace Fisabrantes.Models
 
         public virtual Consultas Consulta { get; set; }
 
-        public string Nome { get; internal set; }
     }
 }

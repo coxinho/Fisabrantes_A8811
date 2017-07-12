@@ -28,7 +28,8 @@
                     <li>@Html.ActionLink("Contactos", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Tratamentos", "Tratamentos", "Home")</li>
                     <li>@Html.ActionLink("Acordos e Convenções", "Acordos", "Home")</li>
-                    @* criar lista para os utilizadores 'Funcionários' *@
+
+                    @* criar lista para os utilizadores 'Administrativo' *@
                     @if (User.IsInRole("Administrativo"))
                     {
                     <li class="dropdown">
@@ -88,7 +89,7 @@
         @RenderBody()
         <footer>
             <p style="text-align: right">
-                ***   Tecnologias da Internet II   ***   Maria Cristina Neto Coxinho Nº 8811   ***
+                ***   Tecnologias da Internet II   ***   2016/2017   ***   Maria Cristina Neto Coxinho Nº 8811   ***
             </p>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>

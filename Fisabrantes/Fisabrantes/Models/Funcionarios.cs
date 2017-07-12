@@ -49,7 +49,7 @@ namespace Fisabrantes.Models
 
         //********************************************************************************     
         // atributo para relacionar os 'funcionários' com os dados da Autenticaçao
-        //[Required(ErrorMessage = "O {0} é de preencimento obrigatório...")]
+        //[Required]
         public string UserName { get; set; }
 
         //********************************************************************************
