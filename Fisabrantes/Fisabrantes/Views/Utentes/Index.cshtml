@@ -2,13 +2,12 @@
 
 @{
     ViewBag.Title = "Index";
- 
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Novo Utente", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -19,13 +18,22 @@
             @Html.DisplayNameFor(model => model.DataNasc)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.NIF)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Telefone)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Morada)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.CodPostal)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.SNS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th></th>
     </tr>
@@ -39,18 +47,27 @@
             @Html.DisplayFor(modelItem => item.DataNasc)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.NIF)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Telefone)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Morada)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.CodPostal)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.SNS)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.idUtente }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.idUtente }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.idUtente })
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idUtente }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idUtente }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idUtente })
         </td>
     </tr>
 }

@@ -41,6 +41,10 @@ namespace Fisabrantes.Models
         [Display(Name = "Sistema Nacional Saúde")]
         public string SNS { get; set; }
 
+        //********************************************************************************     
+        // atributo para relacionar os 'funcionários' com os dados da Autenticaçao
+        //[Required]
+        public string UserName { get; set; }
         //**************************************************************************
         // Lista das Consultas associadas ao Utente
         public virtual ICollection<Consultas> ListaDeConsultasAoUtente { get; set; }

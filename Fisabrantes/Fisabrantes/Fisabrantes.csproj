@@ -283,16 +283,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\ListaMedicos.cshtml" />
     <Content Include="Views\Home\ListaTerapeutas.cshtml" />
-    <Content Include="Views\Home\ListaAdministrativos.cshtml" />
+    <Content Include="Views\Home\ListaFuncionarios.cshtml" />
     <Content Include="Views\Home\Tratamentos.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Home\Acordos.cshtml" />
-    <Content Include="Views\Utentes\Create.cshtml" />
-    <Content Include="Views\Utentes\Delete.cshtml" />
-    <Content Include="Views\Utentes\Details.cshtml" />
-    <Content Include="Views\Utentes\Edit.cshtml" />
-    <Content Include="Views\Utentes\Index.cshtml" />
     <Content Include="Views\Consultas\Create.cshtml" />
     <Content Include="Views\Consultas\Delete.cshtml" />
     <Content Include="Views\Consultas\Details.cshtml" />
@@ -308,6 +303,11 @@
     <Content Include="Views\Funcionarios\Details.cshtml" />
     <Content Include="Views\Funcionarios\Edit.cshtml" />
     <Content Include="Views\Funcionarios\Index.cshtml" />
+    <Content Include="Views\Utentes\Create.cshtml" />
+    <Content Include="Views\Utentes\Delete.cshtml" />
+    <Content Include="Views\Utentes\Details.cshtml" />
+    <Content Include="Views\Utentes\Edit.cshtml" />
+    <Content Include="Views\Utentes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

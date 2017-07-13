@@ -16,14 +16,22 @@ namespace Fisabrantes.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Utentes
-        [Authorize(Roles = "Administrativo, Terapeuta, Medico, Utente")]
+        [AllowAnonymous]
         public ActionResult Index()
         {
-            return View(db.Utentes.ToList());
+            //return View(db.Utentes.ToList());
+            //se o utilizador for do tipo ADMINISTRATIVO, do tipo TERAPEUTA ou do tipo MÉDICO
+            if (User.IsInRole("Administrativo") || User.IsInRole("Terapeuta") || User.IsInRole("Medico"))
+            {
+                return View(db.Utentes.ToList().OrderBy(dd => dd.Nome));
+            }
+            // se for do tipo UTENTE
+            return View(db.Utentes
+              .Where(d => d.UserName == User.Identity.Name)
+              .ToList());
         }
 
         // GET: Utentes/Details/5
-        [Authorize(Roles = "Administrativo, Terapeuta, Medico")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -33,14 +41,11 @@ namespace Fisabrantes.Controllers
             Utentes utentes = db.Utentes.Find(id);
             if (utentes == null)
             {
-                //redirecionamos para a listagem 'index' dos 'utentes'
-                return RedirectToAction("Index");
-                //return HttpNotFound();
+                return HttpNotFound();
             }
             return View(utentes);
         }
 
-        [Authorize(Roles = "Administrativo")]
         // GET: Utentes/Create
         public ActionResult Create()
         {
@@ -52,8 +57,7 @@ namespace Fisabrantes.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrativo")]
-        public ActionResult Create([Bind(Include = "idUtente,Nome,DataNasc,NIF,Telefone,Morada,CodPostal,SNS")] Utentes utentes)
+        public ActionResult Create([Bind(Include = "idUtente,Nome,DataNasc,NIF,Telefone,Morada,CodPostal,SNS,UserName")] Utentes utentes)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +70,6 @@ namespace Fisabrantes.Controllers
         }
 
         // GET: Utentes/Edit/5
-        [Authorize(Roles = "Administrativo")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,9 +79,7 @@ namespace Fisabrantes.Controllers
             Utentes utentes = db.Utentes.Find(id);
             if (utentes == null)
             {
-                //redirecionamos para a listagem 'index' dos 'utentes'
-                return RedirectToAction("Index");
-                //return HttpNotFound();
+                return HttpNotFound();
             }
             return View(utentes);
         }
@@ -88,8 +89,7 @@ namespace Fisabrantes.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrativo")]
-        public ActionResult Edit([Bind(Include = "idUtente,Nome,DataNasc,NIF,Telefone,Morada,CodPostal,SNS")] Utentes utentes)
+        public ActionResult Edit([Bind(Include = "idUtente,Nome,DataNasc,NIF,Telefone,Morada,CodPostal,SNS,UserName")] Utentes utentes)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +101,6 @@ namespace Fisabrantes.Controllers
         }
 
         // GET: Utentes/Delete/5
-        [Authorize(Roles = "Administrativo")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -111,9 +110,7 @@ namespace Fisabrantes.Controllers
             Utentes utentes = db.Utentes.Find(id);
             if (utentes == null)
             {
-                //redirecionamos para a listagem 'index' dos 'utentes'
-                return RedirectToAction("Index");
-                //return HttpNotFound();
+                return HttpNotFound();
             }
             return View(utentes);
         }
@@ -121,7 +118,6 @@ namespace Fisabrantes.Controllers
         // POST: Utentes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrativo")]
         public ActionResult DeleteConfirmed(int id)
         {
             Utentes utentes = db.Utentes.Find(id);

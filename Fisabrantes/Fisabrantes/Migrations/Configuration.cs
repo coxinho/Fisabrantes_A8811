@@ -41,12 +41,12 @@ namespace Fisabrantes.Migrations
             // ############################################################################################
             // adiciona Utentes
             var Utentes = new List<Utentes> {
-                new Utentes  {idUtente=1, Nome = "Paulo Dias", DataNasc = new DateTime (1988,3,5), NIF ="154647324", Telefone = "962434671", Morada = "Torres Novas", CodPostal = "2350-630", SNS = "395121876"  },
-                new Utentes  {idUtente=2, Nome = "Joana Lopes", DataNasc = new DateTime (1950,6,3), NIF ="122845676", Telefone = "923654871", Morada = "Ponte de Sôr", CodPostal = "7400-123", SNS = "395654890"  },
-                new Utentes  {idUtente=3, Nome = "Lurdes Costa", DataNasc = new DateTime (1970,8,2), NIF ="133867453", Telefone = "931540761", Morada = "Abrantes", CodPostal = "2200-350", SNS = "395111453"  },
-                new Utentes  {idUtente=4, Nome = "José Bernardo", DataNasc = new DateTime (1961,4,27), NIF ="187231569", Telefone = "965214629", Morada = "Tramagal", CodPostal = "2200-332", SNS = "395275998"  },
-                new Utentes  {idUtente=5, Nome = "Jorge Santos", DataNasc = new DateTime (1940,7,20), NIF ="144089327", Telefone = "913638510", Morada = "Tomar", CodPostal = "2304-909", SNS = "395003564"  },
-                new Utentes  {idUtente=6, Nome = "Cristina Coxinho", DataNasc = new DateTime (1967,8,7), NIF = "182542386", Telefone = "966737701", Morada = "Abrantes", CodPostal = "2205-411", SNS = "389782893"}
+                new Utentes  {idUtente=1, Nome = "Paulo Dias", DataNasc = new DateTime (1988,3,5), NIF ="154647324", Telefone = "962434671", Morada = "Torres Novas", CodPostal = "2350-630", SNS = "395121876", UserName= "paulodias@gmail.com" },
+                new Utentes  {idUtente=2, Nome = "Joana Lopes", DataNasc = new DateTime (1950,6,3), NIF ="122845676", Telefone = "923654871", Morada = "Ponte de Sôr", CodPostal = "7400-123", SNS = "395654890", UserName= "joana@hotmail.com" },
+                new Utentes  {idUtente=3, Nome = "Lurdes Costa", DataNasc = new DateTime (1970,8,2), NIF ="133867453", Telefone = "931540761", Morada = "Abrantes", CodPostal = "2200-350", SNS = "395111453", UserName= "lurdes23@gmail.com" },
+                new Utentes  {idUtente=4, Nome = "José Bernardo", DataNasc = new DateTime (1961,4,27), NIF ="187231569", Telefone = "965214629", Morada = "Tramagal", CodPostal = "2200-332", SNS = "395275998", UserName= "ze67bernardo@gmail.com" },
+                new Utentes  {idUtente=5, Nome = "Jorge Santos", DataNasc = new DateTime (1940,7,20), NIF ="144089327", Telefone = "913638510", Morada = "Tomar", CodPostal = "2304-909", SNS = "395003564", UserName= "jorge@hotmail.com" },
+                new Utentes  {idUtente=6, Nome = "Cristina Coxinho", DataNasc = new DateTime (1967,8,7), NIF = "182542386", Telefone = "966737701", Morada = "Abrantes", CodPostal = "2205-411", SNS = "389782893", UserName= "criscox@gmail.com" }
             };
 
             Utentes.ForEach(dd => context.Utentes.AddOrUpdate(d => d.Nome, dd));
@@ -69,12 +69,12 @@ namespace Fisabrantes.Migrations
             // ############################################################################################
             // adiciona Prescricao
             var Prescricao = new List<Prescricoes> {
-                new Prescricoes  {idPrescricao = 1, Descricao = "Utente Paulo Dias - Fisioterapia Respiratóra", ConsultaFK = 2 },
+                new Prescricoes  {idPrescricao = 1, Descricao = "Utente - Fisioterapia Respiratóra", ConsultaFK = 1 },
                 new Prescricoes  {idPrescricao = 2, Descricao = "Eletroterapia - Pretende-se utilizar a eletricidade em tratamentos e estimulação.", ConsultaFK = 2 },
                 new Prescricoes  {idPrescricao = 3, Descricao = "Pretende-se o movimento com os músculos, articulações, ligamentos, tendões e estruturas do sistema nervoso central e periférico.", ConsultaFK = 2 },
-                new Prescricoes  {idPrescricao = 4, Descricao = "Termoterapia - Deve utilizar-se o calor, ou o frio, como forma de tratar diversas patologias.", ConsultaFK = 2},
-                new Prescricoes  {idPrescricao = 5, Descricao = "Fototerapia - indicado para o utente José.", ConsultaFK = 2 },
-                new Prescricoes  {idPrescricao = 6, Descricao = "Fisioterapia neurofuncional - Tratamento de distúrbios neurológicos que envolvam ou não disfunções motoras.", ConsultaFK = 2 }
+                new Prescricoes  {idPrescricao = 4, Descricao = "Termoterapia - Deve utilizar-se o calor, ou o frio, como forma de tratar diversas patologias.", ConsultaFK = 3},
+                new Prescricoes  {idPrescricao = 5, Descricao = "Fototerapia - indicado para o utente.", ConsultaFK = 3 },
+                new Prescricoes  {idPrescricao = 6, Descricao = "Fisioterapia neurofuncional - Tratamento de distúrbios neurológicos que envolvam ou não disfunções motoras.", ConsultaFK = 4 }
             };
 
              Prescricao.ForEach(cc => context.Prescricao.Add(cc));
