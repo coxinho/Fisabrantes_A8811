@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Fisabrantes.Models;
 
@@ -16,12 +13,13 @@ namespace Fisabrantes.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Consultas
-        [Authorize(Roles = "Administrativo, Terapeuta, Medico, Utente")]
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var consultas = db.Consultas.Include(c => c.Fisiatra).Include(c => c.Utente);
-            return View(consultas.ToList());//apresenta a lista de consultas
+            return View(db.Utentes.ToList());
         }
+    
 
         // GET: Consultas/Details/5
         [Authorize(Roles = "Administrativo, Terapeuta, Medico")]

@@ -283,7 +283,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\ListaMedicos.cshtml" />
     <Content Include="Views\Home\ListaTerapeutas.cshtml" />
-    <Content Include="Views\Home\ListaFuncionarios.cshtml" />
+    <Content Include="Views\Home\ListaAdministrativos.cshtml" />
     <Content Include="Views\Home\Tratamentos.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
