@@ -54,7 +54,7 @@ namespace Fisabrantes.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Medico")]
-        public ActionResult Create([Bind(Include = "idPrescricao,Descricao,ConsultaFK,Nome")] Prescricoes prescricoes)
+        public ActionResult Create([Bind(Include = "idPrescricao,Descricao,ConsultaFK")] Prescricoes prescricoes)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace Fisabrantes.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Medico")]
-        public ActionResult Edit([Bind(Include = "idPrescricao,Descricao,ConsultaFK,Nome")] Prescricoes prescricoes)
+        public ActionResult Edit([Bind(Include = "idPrescricao,Descricao,ConsultaFK")] Prescricoes prescricoes)
         {
             if (ModelState.IsValid)
             {
